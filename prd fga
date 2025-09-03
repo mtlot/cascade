@@ -1,0 +1,143 @@
+-- Create FGA policies for all LIS, LOV, and INTG schemas
+SET SERVEROUTPUT ON
+DECLARE
+  v_count NUMBER := 0;
+  v_errors NUMBER := 0;
+  v_start_time TIMESTAMP := SYSTIMESTAMP;
+  v_batch_size NUMBER := 10; -- Process 10 tables at a time
+  v_total_tables NUMBER := 0;
+  v_processed_tables NUMBER := 0;
+  
+  -- Get total number of tables to process
+  CURSOR c_total IS
+    SELECT COUNT(*) 
+    FROM all_tables 
+    WHERE (owner LIKE 'LIS%' OR owner LIKE 'LOV%' OR owner LIKE 'INTG%')
+    AND owner NOT IN ('SYS','SYSTEM','SYSMAN','XDB','CTXSYS','DBSNMP','ORDSYS','ORDPLUGINS','MDSYS')
+    AND table_name NOT LIKE 'BIN$%';
+    
+  -- Get tables to process
+  CURSOR c_tables IS
+    SELECT owner, table_name 
+    FROM all_tables 
+    WHERE (owner LIKE 'LIS%' OR owner LIKE 'LOV%' OR owner LIKE 'INTG%')
+    AND owner NOT IN ('SYS','SYSTEM','SYSMAN','XDB','CTXSYS','DBSNMP','ORDSYS','ORDPLUGINS','MDSYS')
+    AND table_name NOT LIKE 'BIN$%'
+    ORDER BY owner, table_name;
+    
+BEGIN
+  -- Get total tables to process
+  OPEN c_total;
+  FETCH c_total INTO v_total_tables;
+  CLOSE c_total;
+  
+  DBMS_OUTPUT.PUT_LINE('Starting FGA policy creation at ' || TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'));
+  DBMS_OUTPUT.PUT_LINE('Total tables to process: ' || v_total_tables);
+  DBMS_OUTPUT.PUT_LINE('Processing in batches of ' || v_batch_size || ' tables...');
+  DBMS_OUTPUT.PUT_LINE('----------------------------------------');
+  
+  FOR r IN c_tables LOOP
+    BEGIN
+      DECLARE
+        v_policy_name VARCHAR2(30);
+      BEGIN
+        -- Create policy name (max 30 chars)
+        v_policy_name := 'FGA_' || 
+                        SUBSTR(REGEXP_REPLACE(r.owner, '[^A-Z0-9]', ''), 1, 5) || '_' || 
+                        SUBSTR(REGEXP_REPLACE(r.table_name, '[^A-Z0-9]', ''), 1, 15);
+        
+        -- Drop policy if it exists
+        BEGIN
+          EXECUTE IMMEDIATE 
+            'BEGIN DBMS_FGA.DROP_POLICY(''' || 
+            r.owner || ''', ''' || 
+            r.table_name || ''', ''' || 
+            v_policy_name || '''); END;';
+        EXCEPTION
+          WHEN OTHERS THEN NULL; -- Ignore if policy doesn't exist
+        END;
+        
+        -- Add new policy
+        EXECUTE IMMEDIATE 
+          'BEGIN DBMS_FGA.ADD_POLICY(' ||
+          'object_schema => ''' || r.owner || ''', ' ||
+          'object_name => ''' || r.table_name || ''', ' ||
+          'policy_name => ''' || v_policy_name || ''', ' ||
+          'statement_types => ''INSERT,UPDATE,DELETE'', ' ||
+          'enable => TRUE); END;';
+        
+        v_count := v_count + 1;
+        v_processed_tables := v_processed_tables + 1;
+        
+        -- Show progress
+        IF MOD(v_processed_tables, v_batch_size) = 0 OR v_processed_tables = v_total_tables THEN
+          COMMIT; -- Commit after each batch
+          DBMS_OUTPUT.PUT_LINE('Processed ' || v_processed_tables || ' of ' || v_total_tables || 
+                              ' tables (' || 
+                              ROUND((v_processed_tables/v_total_tables)*100, 1) || 
+                              '%) - ' || TO_CHAR(SYSDATE, 'HH24:MI:SS'));
+                              
+          -- Show recent progress
+          DBMS_OUTPUT.PUT_LINE('   - Latest: ' || r.owner || '.' || r.table_name);
+          DBMS_OUTPUT.PUT_LINE('----------------------------------------');
+        END IF;
+        
+      EXCEPTION
+        WHEN OTHERS THEN
+          v_errors := v_errors + 1;
+          DBMS_OUTPUT.PUT_LINE('   - Error on ' || r.owner || '.' || r.table_name || 
+                              ': ' || SQLERRM);
+      END;
+      
+    EXCEPTION
+      WHEN OTHERS THEN
+        v_errors := v_errors + 1;
+        DBMS_OUTPUT.PUT_LINE('   - Fatal error on ' || r.owner || '.' || r.table_name || 
+                            ': ' || SQLERRM);
+    END;
+  END LOOP;
+  
+  -- Final summary
+  DBMS_OUTPUT.PUT_LINE('----------------------------------------');
+  DBMS_OUTPUT.PUT_LINE('FGA Policy Creation Summary:');
+  DBMS_OUTPUT.PUT_LINE('Start Time: ' || TO_CHAR(v_start_time, 'YYYY-MM-DD HH24:MI:SS'));
+  DBMS_OUTPUT.PUT_LINE('End Time:   ' || TO_CHAR(SYSTIMESTAMP, 'YYYY-MM-DD HH24:MI:SS'));
+  DBMS_OUTPUT.PUT_LINE('Total Tables: ' || v_total_tables);
+  DBMS_OUTPUT.PUT_LINE('Policies Added: ' || v_count);
+  DBMS_OUTPUT.PUT_LINE('Errors: ' || v_errors);
+  DBMS_OUTPUT.PUT_LINE('----------------------------------------');
+  
+  -- Show any errors
+  IF v_errors > 0 THEN
+    DBMS_OUTPUT.PUT_LINE('Note: Some errors occurred during processing.');
+    DBMS_OUTPUT.PUT_LINE('You can review the errors above and re-run for failed tables if needed.');
+  END IF;
+  
+  COMMIT;
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('Fatal error: ' || SQLERRM);
+    DBMS_OUTPUT.PUT_LINE('Error backtrace: ' || DBMS_UTILITY.FORMAT_ERROR_BACKTRACE);
+    ROLLBACK;
+END;
+/
+
+-- Verify the count of created policies
+SELECT owner, COUNT(*) as policy_count
+FROM dba_audit_policies
+WHERE policy_name LIKE 'FGA_%'
+GROUP BY owner
+ORDER BY owner;
+
+-- Check for any errors in the audit trail
+SELECT * FROM (
+    SELECT db_user, 
+           to_char(timestamp, 'YYYY-MM-DD HH24:MI:SS') as action_time,
+           object_schema, 
+           object_name, 
+           policy_name,
+           sql_text
+    FROM dba_fga_audit_trail
+    WHERE returncode != 0  -- Show only errors
+    ORDER BY timestamp DESC
+) WHERE ROWNUM <= 10;

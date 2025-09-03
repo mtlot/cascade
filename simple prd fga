@@ -1,0 +1,16 @@
+-- Test FGA policy creation
+BEGIN
+  DBMS_FGA.ADD_POLICY(
+    object_schema   => 'YOUR_SCHEMA',
+    object_name     => 'YOUR_TABLE',
+    policy_name     => 'TEST_FGA_POLICY',
+    statement_types => 'SELECT,INSERT,UPDATE,DELETE',
+    enable         => TRUE,
+    audit_trail    => DBMS_FGA.DB_EXTENDED
+  );
+  DBMS_OUTPUT.PUT_LINE('FGA policy created successfully!');
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+END;
+/

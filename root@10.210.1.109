@@ -1,0 +1,705 @@
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 • MobaXterm Personal Edition v24.3 •                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ⮞ SSH session to root@10.210.1.109                                   │
+    │   • Direct SSH      :  ✓                                             │
+    │   • SSH compression :  ✓                                             │
+    │   • SSH-browser     :  ✓                                             │
+    │   • X11-forwarding  :  ✗  (disabled or not supported by server)      │
+    │                                                                      │
+    │ ⮞ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+Last login: Thu Aug 14 13:13:36 2025 from 10.210.1.4
+[root@RHQ01SW01POD-DOC ~]# podman run -d --name=grafana   --network=monitor-net   -p 3000:3000   -v /data/grafana:/var/lib/grafana   grafana/grafa                          na^C
+[root@RHQ01SW01POD-DOC ~]# podman run       --name jenkins       --detach       --privileged       --publish 8080:8080       --publish 50000:50000        --volume jenkins-data:/var/jenkins_home       --volume jenkins-podman-certs:/certs/client:ro       docker.io/bitnami/jenkins:latest^C
+[root@RHQ01SW01POD-DOC ~]# clear
+[root@RHQ01SW01POD-DOC ~]# history
+    1  cd /etc/sysconfig/network-scripts
+    2  vi ifcfg-ens192
+    3  reboot
+    4  ip addr show
+    5  cd /etc/sysconfig/network-scripts
+    6  vi ifcfg-ens192
+    7  ip addr show
+    8  vi ifcfg-ens192
+    9  reboot
+   10  cd /etc/
+   11  ll
+   12  vi yum.conf
+   13  ifconfig
+   14  yum install ifconfig
+   15  yum install -y net-tools
+   16  ping 10.210.1.110
+   17  ping 10.210.1.70
+   18  cd /root
+   19  vi ifcfg-ens192
+   20  cd /etc/sysconfig/network-scripts
+   21  vi ifcfg-ens192
+   22  reboot
+   23  ip addr show
+   24  cd /etc/sysconfig/network-scripts
+   25  vi ifcfg-ens192
+   26  ip addr show
+   27  vi ifcfg-ens224
+   28  ip route show
+   29  route -n
+   30  ls
+   31  cat ifcfg-ens224
+   32  df -h
+   33  cat ifcfg-ens224
+   34  vi ifcfg-ens224
+   35  ls
+   36  vi ifcfg-ens192
+   37  reboot
+   38  ip addr show
+   39  cd /etc/sysconfig/network-scripts
+   40  vi ifcfg-ens192
+   41  rm ifcfg-ens224
+   42  ls
+   43  mv ifcfg-ens192 ifcfg-ens224
+   44  ls
+   45  reboot
+   46  ping 8.8.8.8
+   47  cd /etc/yum.conf
+   48  cat /etc/yum.conf
+   49  curl https://www.google.com/
+   50  sudo yum module install -y container-tools:ol8
+   51  podman info
+   52  mkdir -p /var/opt/gitlab/git-data/repositories/gitproject
+   53  cd  /var/opt/gitlab/git-data/repositories/gitproject
+   54  touch Dockerfile
+   55  ls
+   56  chown -R git:git /var/opt/gitlab/git-data/repositories/gitproject
+   57  cd /root
+   58  chown -R git:git /var/opt/gitlab/git-data/repositories/gitproject
+   59  chmod -R 755 /var/opt/gitlab/git-data/repositories/gitproject
+   60  chown -R git:git /var/opt/gitlab/git-data/repositories/gitproject
+   61  useradd -m lisgit
+   62  passwd lisgit
+   63  chown -R lisgit:lisgit /var/opt/gitlab/git-data/repositories/gitproject
+   64  cd  /var/opt/gitlab/git-data/repositories/gitproject
+   65  ls
+   66  vi Dockerfile
+   67  podman build -t gitlab-ce-10.7.1  .
+   68  ping container-registry.oracle.com
+   69  vi /etc/yum.conf
+   70  ping container-registry.oracle.com
+   71  curl container-registry.oracle.com
+   72  podman images
+   73  curl -I https://container-registry.oracle.com/v2/
+   74  cd /root
+   75  vi /etc/environment
+   76  source /etc/environment
+   77  cd /etc/profile
+   78  vi /etc/profile
+   79  cd /etc/sysconfig/network-scripts
+   80  vi ifcfg-ens224
+   81  reboot
+   82  curl -I https://container-registry.oracle.com/v2/
+   83  curl -I https://container-registry.oracle.com
+   84  ping google.com
+   85  curl https://container-registry.oracle.com
+   86  traceroute curl -I https://container-registry.oracle.com/v2/
+   87  traceroute  https://container-registry.oracle.com/v2/
+   88  tracepath  https://container-registry.oracle.com/v2/
+   89  yum -y curl update
+   90  yum install -y curl
+   91  curl -I https://container-registry.oracle.com
+   92   -I https://container-registry.oracle.com
+   93  curl --tlsv1.2 -I https://container-registry.oracle.com
+   94  curl: (35) error:1408F10B:SSL routines:ssl3_get_record:wrong version number
+   95  proxy=192.168.2.1:8080;curl -v google.co
+   96  proxy=10.249.62.20:3128;curl -v google.com
+   97  curl -v google.com
+   98  cd  /var/opt/gitlab/git-data/repositories/gitproject
+   99  podman build -t gitlab-ce-10.7.1  .
+  100  vi Dockerfile
+  101  ~
+  102  yum install -y openssh-server
+  103  systemctl start sshd
+  104  systemctl is-enabled sshd
+  105  podman build -t gitlab-ce-10.7.1  .
+  106  systemctl enable sshd
+  107  podman build -t gitlab-ce-10.7.1  .
+  108  sudo firewall-cmd --state
+  109  sudo systemctl stop firewalld
+  110  sudo systemctl disable firewalld
+  111  podman build -t gitlab-ce-10.7.1  .
+  112  vi Dockerfile
+  113  docker build -t gitlab-ce .
+  114  podman build -t gitlab-ce .
+  115  cd /root
+  116  vi /etc/profile
+  117  vi /etc/environment
+  118  cd  /var/opt/gitlab/git-data/repositories/gitproject
+  119  podman build -t gitlab-ce .
+  120  cd /root
+  121  vi /etc/environment
+  122  cd  /var/opt/gitlab/git-data/repositories/gitproject
+  123  podman build -t gitlab-ce .
+  124  vi /root/etc/environment
+  125  vi ./root/etc/environment
+  126  cd /root
+  127  vi /etc/environment
+  128  cd  /var/opt/gitlab/git-data/repositories/gitproject
+  129  podman build -t gitlab-ce .
+  130  cd /root
+  131  vi /etc/environment
+  132  cd  /var/opt/gitlab/git-data/repositories/gitproject
+  133  podman build -t --tls-verify=false  gitlab-ce .
+  134  podman build --tls-verify=false -t  gitlab-ce .
+  135  docker login container-registry.oracle.com -u mtlotlang@enkon.com -p 113:10:5539231639544
+  136  podman login container-registry.oracle.com -u mtlotlang@enkon.com -p 113:10:5539231639544
+  137  podman login container-registry.oracle.com -u mtlotlang@enkon.com -p 5539231639544
+  138  cd  /var/opt/gitlab/git-data/repositories/gitproject
+  139  vi Dockerfile
+  140  cd /root
+  141  alias docker=podman
+  142  docker images
+  143  source ~/.bashrc   # replace .bashrc with your shell configuration file if it has a different name
+  144  docker login
+  145  systemctl show --property=Environment podman
+  146  vi /etc/environment
+  147  systemctl show --property=Environment podman Environment=http_proxy=http://10.249.62.20:3128 https_proxy=https://10.249.62.20:3128/
+  148  systemctl show --property=Environment
+  149  env | grep -i podman
+  150  cd /usr/lib/systemd/system/podman.service
+  151  cd /usr/lib/systemd/system/
+  152  ls
+  153  vi
+  154  cd /podman.service
+  155  cat /podman.service
+  156  cat podman.service
+  157  vi podman.service
+  158  cd /root
+  159  systemctl show --property=Environment
+  160  env | grep -i podman
+  161  cd /usr/lib/systemd/system/
+  162  vi podman.service
+  163  sudo systemctl daemon-reload
+  164  sudo systemctl restart podman
+  165  cd /root
+  166  sudo systemctl restart podman
+  167  sudo systemctl daemon-reload
+  168  sudo systemctl restart podman
+  169  podman info
+  170  systemctl show --property=Environment
+  171  reboot
+  172  systemctl show --property=Environment
+  173  su - lisgit
+  174  cd /usr/lib/systemd/system/
+  175  vi podman.service
+  176  vi /etc/profile
+  177  cd /usr/lib/systemd/system/
+  178  ls
+  179  Environment=http_proxy=http://10.249.62.60:3128/
+  180  Environment=https_proxy=http://10.249.62.60:3128/Environment=http_proxy=http://10.249.62.60:3128/
+  181  Inspecting Container Networking
+  182  6 Working With Podman Services
+  183  7 Building Images With Buildah
+  184  8 Using Skopeo to Inspect and Copy Images
+  185  9 Using Container Registries
+  186  10 Security Recommendations
+  187  11 Known Issues
+  188  12 Oracle Linux Container Image Tagging Conventions
+  189  5 Configuring Networking for Podman
+  190  The networking information in this chapter enable you to understand how to configure the different networking requirements for containers that run within Podman or when working with images and temporary containers within Buildah.
+  191  Podman handles the networking of containers differently depending on whether the containers are run by the root or privileged user or by a standard user on the host system. The root user has considerably more power to modify network infrastructure on the host, but the standard user has limited ability to alter network infrastructure.
+  192  In a network setup for Podman, containers that are running within a pod or a group share the same networking name space and therefore have access to the same IP and MAC addresses and port mappings. The shared name space facilitates network communication between different containers or between the host and the containers running on it. For more information about pods, see Creating and Managing Pods.
+  193  Unless indicated otherwise, all of the networking procedures in the sections that follow can be performed only by the root or privileged user.
+  194  Configuring Proxy Server Settings
+  195  Podman automatically uses the system proxy settings for commands that you run and for any containers that you provision.
+  196  You can apply proxy settings on a system-wide basis by adding these to /etc/profile:
+  197  HTTP_PROXY=proxy_URL:port
+  198  HTTPS_PROXY=proxy_URL:port
+  199  Some services, such as the Cockpit web console, use the Podman API Systemd service to interact with Podman. To set the system proxy environment variables for services that use the Podman API, you can create a Systemd service drop-in.
+  200  Create the /etc/systemd/system/podman.service.d directory, if it doesn't already exist, to host Systemd service drop-in configuration specific to the Podman API service.
+  201  clear
+  202  mkdir -p podman.service.d
+  203  vi podman.service.d/http-proxy.conf
+  204  sudo systemctl daemon-reload
+  205  sudo systemctl restart podman
+  206  cd /root
+  207  systemctl show --property=Environment
+  208  systemctl show
+  209  cd  /var/opt/gitlab/git-data/repositories/gitproject
+  210  podman build -t gitlab-ce .
+  211  ping google.com
+  212  curl -v google.com
+  213  firefox
+  214  yum install firefox -y
+  215  firefox
+  216  export DISPLAY=:0.0
+  217  firefox
+  218  setenforce permissive
+  219  sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+  220  cd /root
+  221  firefox
+  222  cd  /var/opt/gitlab/git-data/repositories/gitproject
+  223  ls
+  224  ls -Zd /root/.mozilla/firefox/
+  225  cd /root
+  226  sudo restorecon -Rv /root/.mozilla/firefox/
+  227  cd
+  228  cd /root/.mozilla/firefix/
+  229  cd /root/.mozilla/
+  230  ls
+  231  cd /root
+  232  sudo dnf update
+  233  cat /etc/sysconfig/podman
+  234  vi /etc/sysconfig/podman
+  235  docker login
+  236  alias podman = docker
+  237  alias docker=podman
+  238  ls
+  239  docker login
+  240  vi /etc/sysconfig/podman
+  241  systemctl show --property=Environment
+  242  vi /etc/environment
+  243  vi /etc/profile
+  244  docker login
+  245  sudo systemctl daemon-reload
+  246  sudo systemctl restart podman
+  247  reboot
+  248  ppdman images
+  249  podman images
+  250  vi /etc/environment
+  251  podman pull gitlab/gitlab-ce:10.7.1-ce.0
+  252  vi /etc/environment
+  253  podman pull gitlab/gitlab-ce:10.7.1-ce.0
+  254  vi /etc/systemd/system/podman.service.d/http-proxy.conf
+  255  podman pull gitlab/gitlab-ce:10.7.1-ce.0
+  256  docker login
+  257  alias docker=podman
+  258  docker login
+  259  podman images
+  260  podman pull gitlab/gitlab-ce:10.7.1-ce.0
+  261  podman images
+  262  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:10.7.1-ce.0
+  263  sudo mkdir -p /srv/gitlab/{config,logs,data}
+  264  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:10.7.1-ce.0
+  265  sudo podman container exec -it gitlab gitlab-rails console
+  266  history
+  267      5  cd /etc/sysconfig/network-scripts
+  268  vi /etc/sysconfig/network-scripts
+  269  cd /etc/sysconfig/network-scripts/
+  270  ls
+  271  vi ifcfg-ens224
+  272  history
+  273  mkdir -p /var/opt/gitlab/backups
+  274  vi /etc/environment
+  275  vi /etc/profile
+  276  vi yum.conf
+  277  vi /etc/yum.conf
+  278  vi /etc/systemd/system/podman.service.d/http-proxy.conf
+  279  ll /etc/systemd/system/podman.service.d/http-proxy.conf
+  280  ll /etc/systemd/system/podman.service.d
+  281  ll /etc/systemd/system/
+  282  ls
+  283  vi /etc/systemd/system/podman.service.d/http-proxy.conf
+  284  podman pull gitlab/gitlab-ce:10.7.1-ce.0
+  285  podman images
+  286  podman ps
+  287  cd /etc/systemd/system/podman.service.d/
+  288  cd /etc/systemd/system/
+  289  ls
+  290  history
+  291  vi /etc/systemd/system/podman.service.d/http-proxy.conf
+  292  vi /etc/environment
+  293  podman login
+  294  clear
+  295  cd /root
+  296  podman login
+  297  clear
+  298  vi /etc/environment
+  299  vi /etc/systemd/system/podman.service.d/http-proxy.conf
+  300  vi /etc/profile
+  301  curl -v google.com
+  302  podman ps
+  303  vi /etc/sysconfig/podman
+  304  ping 10.210.1.70
+  305  podman ps
+  306  curl -v 10.210.1.110
+  307  curl -v http://10.210.1.110/users/sign_in
+  308  clear
+  309  vi yum.conf
+  310  systemctl show --property=Environment
+  311  cat /etc/systemd/system/podman.service.d/http-proxy.conf
+  312  cat podman.service.d/http-proxy.conf
+  313  ping 8.8.8.8
+  314  podman ps
+  315  podman pull gitlab/gitlab-ce:12.1.17-ce.0 &&
+  316  podman pull gitlab/gitlab-ce:12.10.14-ce.0 && podman stop gitlab && podman rm gitlab
+  317  podman pull gitlab/gitlab-ce:12.10.14-ce.0
+  318  scp -r /var/opt/gitlab/backups/1686812097_2023_06_15_10.7.1_gitlab_backup.tar root@10.210.1.70:/var/opt/gitlab/backups
+  319   scp -r /var/opt/gitlab/backups/gitlab-secrets.json root@10.210.1.70:/var/opt/gitlab/backups
+  320  scp -r /var/opt/gitlab/backups/gitlab.rb root@10.210.1.70:/var/opt/gitlab/backups
+  321   podman cp -r /var/opt/gitlab/backups/1685436612_2023_05_30_10.7.1_gitlab_backup.tar gitlab:/var/opt/gitlab/backups
+  322   podman cp /var/opt/gitlab/backups/1685436612_2023_05_30_10.7.1_gitlab_backup.tar gitlab:/var/opt/gitlab/backups
+  323   podman scp -r /var/opt/gitlab/backups/1685436612_2023_05_30_10.7.1_gitlab_backup.tar gitlab:/var/opt/gitlab/backups
+  324   podman cp var/opt/gitlab/backups/1685436612_2023_05_30_10.7.1_gitlab_backup.tar gitlab:/var/opt/gitlab/backups
+  325   podman cp var/opt/gitlab/backups/1686812097_2023_06_15_10.7.1_gitlab_backup.tar gitlab:/var/opt/gitlab/backups
+  326   podman cp /var/opt/gitlab/backups/1686812097_2023_06_15_10.7.1_gitlab_backup.tar gitlab:/var/opt/gitlab/backups
+  327  podman cp /var/opt/gitlab/backups/gitlab-secrets.json gitlab:/etc/gitlab
+  328  podman cp /var/opt/gitlab/backups/gitlab.rb gitlab:/etc/gitlab
+  329  podman exec –it gitlab gitlab-rake gitlab:backup:restore
+  330  podman exec -it gitlab gitlab-rake gitlab:backup:restore
+  331  sudo podman exec -it gitlab gitlab-rake gitlab:backup:restore
+  332  vi /etc/environment
+  333  vi /etc/profile
+  334  podman pull jenkins/jenkins
+  335  reboot
+  336  podman pull jenkins/jenkins
+  337  vi /etc/containers/registries.conf
+  338  reboot
+  339  podman pull jenkins/jenkins
+  340  vi /etc/containers/registries.conf
+  341  reboot
+  342  podman pull jenkins/jenkins
+  343  vi /etc/containers/registries.conf
+  344  podman pull gitlab/gitlab-ce:12.10.14-ce.0 && podman stop gitlab && podman rm gitlab
+  345  podman images
+  346  podman pull jenkins/jenkins:latest
+  347  docker pull jenkins/jenkins
+  348  podman pull jenkins/jenkins
+  349  docker pull jenkins/jenkins:2.413-jdk11
+  350  podman pull jenkins/jenkins:2.413-jdk11
+  351  podman pull jenkins/jenkins:2.413
+  352  podman pull jenkins
+  353  podman pull docker.io/jenkins/jenkins:2.413-jdk11
+  354  podman images
+  355  exit
+  356  podman run -d -p 8080:8080 -p 50000:50000 jenkins/jenkins
+  357  podman images
+  358  podman run -d -p 8080:8080 -p 50000:50000 jenkins/jenkins
+  359  podman run -d -p 8080:8080 -p 50000:50000 docker.io/jenkins/jenkins:2.413-jdk11
+  360  podman  exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+  361  podman images
+  362  podman container ps -a
+  363  podman rm gallant_mahavira
+  364  podman rm
+  365  podman images
+  366  podman run -d -p 8080:8080 -p 50000:50000 -namejenkins docker.io/jenkins/jenkins:2.413-jdk11
+  367  podman ps -a
+  368  podman container rm -f d9d18a0e4331
+  369  podman container rm -f 84707ac62e9c
+  370  podman container ps -a
+  371  podman ps
+  372   podman run -d -p 8080:8080 -p 50000:50000 --name jenkins docker.io/jenkins/jenkins:2.413-jdk11
+  373  podman ps
+  374  podman  exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+  375  vi /etc/environment
+  376  podman pull docker.io/jenkins/jenkins:2.415
+  377  podman stop jenkins
+  378  podman rm jenkins
+  379  podman ps -a
+  380  podman run       --name jenkins       --detach       --privileged       --publish 8080:8080       --publish 50000:50000       --volume jenkins-data:/var/jenkins_home       --volume jenkins-podman-certs:/certs/client:ro       docker.io/jenkins/jenkins:2.415
+  381  podman  exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+  382  reboot
+  383  podman ps
+  384  podman start jenkins
+  385  podman ps
+  386  podman restart jenkins
+  387  podman  exec -it jenkins cat /etc/default/jenkins
+  388  podman  exec -it jenkins bash
+  389  podman stop jenkins
+  390  podman rm jenkins
+  391  podman run       --name jenkins       --detach       --privileged       --publish 8080:8080       --publish 50000:50000        --env JAVA_OPTS="-Djdk.httpclient.ssl.use.hostname.verifier=false -Djdk.httpclient.ssl.verify=none"        --volume jenkins-data:/var/jenkins_home       --volume jenkins-podman-certs:/certs/client:ro       docker.io/jenkins/jenkins:2.415
+  392  podman  exec -it jenkins bash
+  393  cat /etc/profile
+  394  podman  exec -it jenkins bash
+  395  docker pull jenkins/jenkins
+  396  podman pull jenkins/jenkins
+  397  podman pull docker.io/jenkins/jenkins
+  398  podman pull docker.io/jenkins/jenkins:latest
+  399  podman pull docker.io/jenkinci/blueocean
+  400  clear
+  401  p
+  402  podman images
+  403  mkdir -p /home/data/jenkins
+  404  chmod 777 -R /home/data/jenkins/
+  405  sudo podman run -it --name jenkins -u root -p 8080:8080 -p 50000:50000 -v /home/data/jenkins:/var/jenkins_home -v /var/run/podman.sock:/var/run/podman.sock --restart=always --privileged=true docker.io/jenkins/jenkins:1.24.8
+  406  sudo podman run -it --name jenkins -u root -p 8080:8080 -p 50000:50000 -v /home/data/jenkins:/var/jenkins_home -v /var/run/podman.sock:/var/run/podman.sock --restart=always --privileged=true jenkins/jenkins:1.24.8
+  407  sudo podman run -it --name jenkins -u root -p 8080:8080 -p 50000:50000 -v /home/data/jenkins:/var/jenkins_home -v /var/run/podman.sock:/var/run/podman.sock --restart=always --privileged=true docker.io/jenkins/blueocean
+  408  sudo podman run -it --name jenkins -u root -p 8080:8080 -p 50000:50000 -v /home/data/jenkins:/var/jenkins_home -v /var/run/podman.sock:/var/run/podman.sock --restart=always --privileged=true docker.io/jenkins/blueocean:1.24.8
+  409  sudo podman run -it --name jenkins -u root -p 8080:8080 -p 50000:50000 -v /home/data/jenkins:/var/jenkins_home -v /var/run/podman.sock:/var/run/podman.sock --restart=always --privileged=true docker.io/jenkinsci/blueocean:1.24.8
+  410  sudo podman run -it --name jenkins -u root -p 8080:8080 -p 50000:50000 -v /home/data/jenkins:/var/jenkins_home -v /run/podman/podman.sock:/run/podman/podman.sock --privileged=true docker.io/jenkinsci/blueocean:1.24.8
+  411  podman generate systemd --name jenkins > /etc/systemd/system/container-jenkins.service
+  412  sudo podman run -d --name jenkins -u root -p 8080:8080 -p 50000:50000 -v /home/data/jenkins:/var/jenkins_home -v /var/run/podman.sock:/var/run/podman.sock --privileged=true docker.io/jenkins/jenkins:1.24.8
+  413  sudo podman run -d --name jenkins -u root -p 8080:8080 -p 50000:50000 -v /home/data/jenkins:/var/jenkins_home -v /var/run/podman.sock:/var/run/podman.sock --privileged=true docker.io/jenkinsci/blueocean:1.24.8
+  414  sudo podman run -d --name jenkins -u root -p 8080:8080 -p 50000:50000 -v /home/data/jenkins:/var/jenkins_home -v /run/podman/podman.sock:/var/run/docker.sock --privileged=true docker.io/jenkinsci/blueocean:1.24.8
+  415  clear
+  416  podman volume create jenkins-data
+  417  podman run       --name jenkins       --detach       --privileged       --publish 8080:8080       --publish 50000:50000        --volume jenkins-data:/var/jenkins_home       --volume jenkins-podman-certs:/certs/client:ro       docker.io/jenkinsci/blueocean:1.24.8
+  418  podman pull docker.io/jenkinci/blueocean:latest
+  419  history
+  420  podman images
+  421  podman pull docker.io/jenkinci/blueocean:latest
+  422  vi /etc/environment
+  423  cat /etc/environment
+  424  podman pull docker.io/jenkinci/blueocean:latest
+  425  podman pull docker.io/jenkinsci/blueocean:latest
+  426  podman stop jenkins
+  427  podman rm jenkins
+  428  podman run       --name jenkins       --detach       --privileged       --publish 8080:8080       --publish 50000:50000        --volume jenkins-data:/var/jenkins_home       --volume jenkins-podman-certs:/certs/client:ro       docker.io/jenkinsci/blueocean:latest
+  429  podman stop jenkins
+  430  podman rm jenkins
+  431  podman pull docker.io/bitnami/jenkins:2.415
+  432  podman pull docker.io/bitnami/jenkins:latest
+  433  podman run       --name jenkins       --detach       --privileged       --publish 8080:8080       --publish 50000:50000        --volume jenkins-data:/var/jenkins_home       --volume jenkins-podman-certs:/certs/client:ro       docker.io/bitnami/jenkins:latest
+  434  podman restart jenkins
+  435  podman stop jenkins
+  436  podman rm jenkins
+  437  podman run       --name jenkins       --detach       --privileged       --publish 8080:8080       --publish 50000:50000        --volume jenkins-data:/var/jenkins_home       --volume jenkins-podman-certs:/certs/client:ro       docker.io/jenkinsci/blueocean:latest
+  438  podman stop jenkins
+  439  podman rm jenkins
+  440  podman run       --name jenkins       --detach       --privileged       --publish 8080:8080       --publish 50000:50000        --volume jenkins-data:/var/jenkins_home       --volume jenkins-podman-certs:/certs/client:ro       docker.io/bitnami/jenkins:latest
+  441  podman restart jenkins
+  442  podman pull docker.io/jenkins/jenkins:lts
+  443  podman images
+  444  podman stop jenkins
+  445  podman rm jenkins
+  446  podman  images
+  447  podman images
+  448  podman rm a40a8916af1d
+  449  podman rm image  a40a8916af1d
+  450  podman rm image  a40a8916af1d
+  451  podman restart jenkins
+  452  ll
+  453  podman restart jenkins
+  454  podman  exec -it jenkins bash
+  455  systemctl status firewalld
+  456  sudo netstat -tuln | grep 34219
+  457  netstat -tuln | grep 34219
+  458  nc -zv 10.210.1.110 38245
+  459  podman restart jenkins
+  460  podman  exec -it jenkins bash
+  461  podman restart jenkins
+  462  history
+  463  cat /etc/yum.conf
+  464  clear
+  465  podman restart jenkins
+  466  history
+  467  cd /etc/sysconfig/network-scripts
+  468  vi ifcfg-ens192
+  469  ls
+  470  vi ifcfg-ens224
+  471  reboot
+  472  podman restart jenkins
+  473  cd /etc/sysconfig/network-scripts
+  474  vi ifcfg-ens224
+  475  reboot
+  476  podman restart jenkins
+  477  cd /etc/sysconfig/network-scripts
+  478  vi ifcfg-ens224
+  479  reboot
+  480  cd /etc/sysconfig/network-scripts
+  481  vi ifcfg-ens224
+  482  podman restart jenkins
+  483  ping 10.210.1.110
+  484  telnet 10.210.1.110
+  485  podman restart jenkins
+  486  reboot
+  487  podman restart jenkins
+  488  podman pull prom/prometheus
+  489  history
+  490  clear
+  491  history
+  492  clear
+  493  podman pull docker.io/prom/prometheus
+  494  history
+  495  clear
+  496    442  podman pull docker.io/jenkins/jenkins:lts
+  497   podman pull docker.io/prom/prometheus
+  498  podman pull docker.io/prom/prometheus:v2.36.1
+  499  vi /etc/environment
+  500  podman pull docker.io/prom/prometheus:latest
+  501  vi /etc/sysconfig/podman
+  502  vi /etc/profile
+  503  reboot
+  504  podman pull docker.io/prom/prometheus:latest
+  505  docker login
+  506  podman login
+  507  history
+  508  podman login
+  509  docker login
+  510  podman login docker.io
+  511  podman pull docker.io/prom/prometheus:latest
+  512  podman pull docker.io/prom/prometheus:v2.48.0
+  513  podman pull docker.io/prom/prometheus:latest
+  514  podman pull docker.io/grafana/grafana:latest
+  515  podman run -d --name=prometheus     --network=monitor-net     -p 9090:9090     -v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml     -v /path/to/prometheus-data:/prometheus     prom/prometheus
+  516  mkdir -p /data/prometheus
+  517  podman run -d --name=prometheus     --network=monitor-net
+  518      -p 9090:9090
+  519      -v /data/prometheus.yml:/etc/prometheus/prometheus.yml
+  520      -v /data/prometheus:/prometheus \
+  521  podman run -d --name=prometheus     --network=monitor-net
+  522      -p 9090:9090
+  523      -v /data/prometheus.yml:/etc/prometheus/prometheus.yml
+  524      -v /data/prometheus:/prometheus \
+  525  podman run -d --name=prometheus \
+  526  --network=monitor-net -p 9090:9090 -v /data/prometheus.yml:/etc/prometheus/prometheus.yml -v /data/prometheus:/prometheus \
+  527  podman run -d --name prometheus \
+  528  --network=monitor-net \
+  529  -p 9090:9090
+  530  -v /data/prometheus.yml:/etc/prometheus/prometheus.yml
+  531  -v /data/prometheus:/prometheus
+  532  podman run -d --name=prometheus     --network=monitor-net     -p 9090:9090     -v /data/prometheus.yml:/etc/prometheus/prometheus.yml     -v /data/prometheus:/prometheus     prom/prometheus
+  533  touch /data/prometheus.yml
+  534  podman run -d --name=prometheus     --network=monitor-net     -p 9090:9090     -v /data/prometheus.yml:/etc/prometheus/prometheus.yml     -v /data/prometheus:/prometheus     prom/prometheus
+  535  podman network create monitor-net
+  536  podman run -d --name=prometheus     --network=monitor-net     -p 9090:9090     -v /data/prometheus.yml:/etc/prometheus/prometheus.yml     -v /data/prometheus:/prometheus     prom/prometheus
+  537  podman restart jenkins
+  538  podman ps
+  539  podman container ps
+  540  podman logs prometheus
+  541  podman ps -a
+  542  chmod 777 /data/prometheus
+  543  touch /data/prometheus/queries.active
+  544  podman run -d --name=prometheus     --network=monitor-net     -p 9090:9090     -v /data/prometheus.yml:/etc/prometheus/prometheus.yml     -v /data/prometheus:/prometheus     prom/prometheus
+  545  podman rm -f prometheus
+  546  podman run -d --name=prometheus     --network=monitor-net     -p 9090:9090     -v /data/prometheus.yml:/etc/prometheus/prometheus.yml     -v /data/prometheus:/prometheus     prom/prometheus
+  547  podman network inspect monitor-net
+  548  clear
+  549  podman inspect -f '{{.NetworkSettings.IPAddress}}' prometheus
+  550  podman ps -a
+  551  ls -l /data
+  552  chmod -R 777 /data
+  553  ls -Z /data
+  554  chcon -R -t container_file_t /data/prometheus
+  555  chcon -t container_file_t /data/prometheus.yml
+  556  podman start prometheus
+  557  podman logs prometheus
+  558  date
+  559  history
+  560  podman exec -it prometheus bash
+  561  podman exec prometheus date
+  562  podman exec -it prometheus apk --no-cache add tzdata
+  563  podman restart prometheus
+  564  podman exec prometheus date
+  565  podman ps -a | grep prometheus
+  566  podman logs prometheus
+  567  podman restart prometheus
+  568  podman ps -a | grep prometheus
+  569  podman restart prometheus
+  570  podman ps -a | grep prometheus
+  571  podman exec prometheus bash
+  572  podman exec it  prometheus bash
+  573  podman ps -a
+  574  podman exec -it ec541741ca3d  bash
+  575  podman exec prometheus date --set="11 DEC 2023 10:49:00"
+  576  podman exec prometheus date --set="2023-12-11 10:49:00"
+  577  podman exec --user=root prometheus date --set="2023-12-11 10:49:00"
+  578  podman run -d --name=prometheus   --network=monitor-net   -p 9090:9090   -v /data/prometheus.yml:/etc/prometheus/prometheus.yml   -v /data/prometheus:/prometheus   -e TZ='Africa/Gaborone'   prom/prometheus
+  579  podman rm -f prometheus
+  580  podman run -d --name=prometheus   --network=monitor-net   -p 9090:9090   -v /data/prometheus.yml:/etc/prometheus/prometheus.yml   -v /data/prometheus:/prometheus   -e TZ='Africa/Gaborone'   prom/prometheus
+  581  podman exec prometheus date --set="2023-12-11 10:49:00"
+  582  date
+  583  podman exec prometheus date
+  584  date
+  585  podman rm -f prometheus
+  586  podman run -d --name=prometheus   --network=monitor-net   -p 9090:9090   -v /data/prometheus.yml:/etc/prometheus/prometheus.yml   -v /data/prometheus:/prometheus   prom/prometheus
+  587  mkdir -p /data/grafana
+  588  podman run -d --name=grafana   --network=monitor-net   -p 3000:3000   -v /data/grafana:/var/lib/grafana   grafana/grafana
+  589  podman ps -a | grep grafana
+  590  podman logs grafana
+  591  chmod -R 777 /data/grafana
+  592  podman -rm -f grafana
+  593  podman rm -f grafana
+  594  podman run -d --name=grafana   --network=monitor-net   -p 3000:3000   -v /data/grafana:/var/lib/grafana   grafana/grafana
+  595  podman ps -a
+  596  mkdir /data/grafana/grafana-config
+  597  touch grafana.ini
+  598  cd /data/grafana/grafana-config
+  599  touch grafana.ini
+  600  cd /root
+  601  podman restart grafana
+  602  podman rm -f  grafana
+  603  podman run -d --name=grafana   --network=monitor-net   -p 3000:3000   -v /data/grafana:/var/lib/grafana   grafana/grafana
+  604  podman exec -it grafana /bin/bash
+  605  history
+  606  clear
+  607  podman restart prometheus
+  608  podman ps -a
+  609  podman restart prometheus
+  610  podman ps -a
+  611  podman logs prometheus
+  612  podman restart prometheus
+  613  podman ps -a
+  614  podman restart prometheus
+  615  podman ps -a
+  616  podman restart prometheus
+  617  podman ps -a
+  618  podman restart prometheus
+  619  podman ps -a
+  620  podman restart prometheus
+  621  podman restart grafana
+  622  podman restart jenkins
+  623  history
+  624  cd /etc/sysconfig/network-scripts
+  625  ll
+  626  cat ifcfg-ens224
+  627  ping 10.36.119.142
+  628  podman restart jenkins
+  629  history
+  630  podman restart jenkins
+  631  podman images
+  632  podman ps
+  633  podman pull sonatype/nexus3
+  634  podman pull docker.io/sonatype/nexus3
+  635  history
+  636  podman pull docker.io/prom/prometheus
+  637  reboot
+  638  podman restart jenkins
+  639  reboot
+  640  podman restart jenkins
+  641  history
+  642  ping -c 4 google.com
+  643  ping google.com
+  644  ping 8.8.8.8
+  645  history
+  646  vi /etc/environment
+  647  cat source ~/.bashrc
+  648  cat source ~/.bashrc
+  649  catvi /etc/systemd/system/podman.service.d/http-proxy.conf source ~/.bashrc
+  650  cat /etc/systemd/system/podman.service.d/http-p
+  651  cat ~/.bashrc
+  652  systemctl show --property=Environment
+  653  systemctl show --property=Environment podman
+  654  cat /etc/profile
+  655  cat /etc/systemd/system/podman.service.d/http-proxy.conf
+  656  cat /etc/systemd/system/podman.service.d/
+  657  cd /etc/systemd/system/podman.service.d/
+  658  cat /etc/systemd/system/podman.service
+  659  cat /etc/systemd/system/
+  660  cd /etc/systemd/system/podman.service.d/
+  661  cd /etc/systemd/system/
+  662  ls
+  663  cd /etc/systemd/system/podman.service.d/
+  664  cd ./
+  665  cd ..
+  666  cd /..
+  667  cd /.
+  668  cd /
+  669  cd /...
+  670  ls
+  671  cd /root
+  672   mkdir -p /etc/systemd/system/podman.service.d
+  673  vi /etc/systemd/system/podman.service.d/http-proxy.conf
+  674  cat /etc/systemd/system/podman.service.d/http-proxy.conf
+  675  history
+  676  podman restart jenkins
+  677  history
+  678  podman restart jenkins
+  679  history
+  680  odman restart jenkins
+  681  reboot
+  682  podman restart jenkins
+  683  reboot
+  684  podman restart jenkins
+  685  clear
+  686  history
+[root@RHQ01SW01POD-DOC ~]#

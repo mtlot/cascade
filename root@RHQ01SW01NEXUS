@@ -1,0 +1,181 @@
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 • MobaXterm Personal Edition v24.3 •                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ⮞ SSH session to root@10.210.1.90                                    │
+    │   • Direct SSH      :  ✓                                             │
+    │   • SSH compression :  ✓                                             │
+    │   • SSH-browser     :  ✓                                             │
+    │   • X11-forwarding  :  ✗  (disabled or not supported by server)      │
+    │                                                                      │
+    │ ⮞ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+Last login: Tue Sep  2 00:44:25 2025 from 10.210.1.4
+[root@RHQ01SW01NEXUS ~]# podman run -d   --name octopus-server   --restart unless-stopped   --privileged   -p 8080:8080   -p 10943:10943   -e 'ACC                          EPT_EULA=Y'   -e 'DB_CONNECTION_STRING=Server=host.containers.internal;Database=OctopusDeploy;User=sa;Password=Strong!Passw0rd;TrustServerCertific                          ate=true;'   -e 'ADMIN_USERNAME=admin'   -e 'ADMIN_PASSWORD=AdminPassw0rd!'   -e 'ADMIN_EMAIL=mtlotlang@consultant.com'   -e 'OCTOPUS_SERVER_BASE6                          4_LICENSE=PExpY2Vuc2UgU2lnbmF0dXJlPSJMNjVMWmRCN3MwbEp5K3lFakNWOGNBZWJaZ1pVeFNFc2lsSHFrN0tNSCtBcjVoMisrMHhkZGZUN0xYY0RSOVcvUW9pV3lyVU1BVW9HTU9NNkpV                          aUk2Zz09Ij4KICA8TGljZW5zZUtleT42NDY0My02MTg2My02MDQyNC0yODY2MTwvTGljZW5zZUtleT4KICA8VmVyc2lvbj4yLjA8IS0tIExpY2Vuc2UgU2NoZW1hIFZlcnNpb24gLS0+PC9WZX                          JzaW9uPgogIDxWYWxpZEZyb20+MjAyNS0wOC0yODwvVmFsaWRGcm9tPgogIDxWYWxpZFRvPjIwMjUtMDktMjc8L1ZhbGlkVG8+CiAgPEtpbmQ+VHJpYWw8L0tpbmQ+CiAgPE1hY2hpbmVMaW1p                          dCBUeXBlcz0iU3NoLFRlbnRhY2xlQWN0aXZlLFRlbnRhY2xlUGFzc2l2ZSI+NTA8L01hY2hpbmVMaW1pdD4KICA8TWFjaGluZUxpbWl0T3ZlcnJ1bj4wPC9NYWNoaW5lTGltaXRPdmVycnVuPg                          ogIDxOb2RlTGltaXQ+VW5saW1pdGVkPC9Ob2RlTGltaXQ+CiAgPFByb2plY3RMaW1pdD41MDwvUHJvamVjdExpbWl0PgogIDxUZW5hbnRMaW1pdD41MDwvVGVuYW50TGltaXQ+CiAgPFNwYWNl                          TGltaXQ+VW5saW1pdGVkPC9TcGFjZUxpbWl0PgogIDxVc2VyTGltaXQ+VW5saW1pdGVkPC9Vc2VyTGltaXQ+CiAgPFdvcmtlckxpbWl0PlVubGltaXRlZDwvV29ya2VyTGltaXQ+CjwvTGljZW                          5zZT4='   -v octopus-repository:/repository   -v octopus-artifacts:/artifacts   -v octopus-tasklogs:/taskLogs   octopusdeploy/octopusdeploy:latest                          ^C
+[root@RHQ01SW01NEXUS ~]# podman run -d   --name octopus-db   -e "ACCEPT_EULA=Y"   -e "MSSQL_PID=Express"   -p 1433:1433   -v octopus-sql-data:/var                          /opt/mssql   mcr.microsoft.com/mssql/server:2019-latest^C
+[root@RHQ01SW01NEXUS ~]# podman run -d --restart=always --name nexus   -p 8081:8081   -v /opt/nexus-data:/nexus-data   sonatype/nexus3^C
+[root@RHQ01SW01NEXUS ~]# clear
+[root@RHQ01SW01NEXUS ~]# history
+    1  cat /etc/yum.config
+    2  vi /etc/profile
+    3  vi /etc/environment
+    4  vi /etc/environment
+    5  cat /etc/yum.conf
+    6  vi /etc/yum.conf
+    7  yum module install -y container-tools:ol8
+    8  podman pull sonatype/nexus3
+    9  podman login container-registry.oracle.com
+   10  podman pull sonatype/nexus3
+   11  podman pull docker.io/sonatype/nexus3:latest
+   12  df -h
+   13  podman images
+   14  podman ps
+   15  podman run -d --restart=always --name nexus   -p 8081:8081   -v /opt/nexus-data:/nexus-data   sonatype/nexus3
+   16  sudo mkdir -p /opt/nexus-data
+   17  sudo chown -R 200 /opt/nexus-data
+   18  sudo setenforce 0
+   19  sudo chown -R 200:200 /opt/nexus-data
+   20  sudo chmod -R 700 /opt/nexus-data
+   21  podman run -d --restart=always --name nexus   -p 8081:8081   -v /opt/nexus-data:/nexus-data   sonatype/nexus3
+   22  podman restart nexus
+   23  podman ps
+   24  podman ps -a
+   25  podman run -d --restart=always --name nexus   -p 8081:8081   -v /opt/nexus-data:/nexus-data   sonatype/nexus3
+   26  exit
+   27  podman kill nexus
+   28  podman start nexus
+   29  podman logs nexus
+   30  clear
+   31  podman run -d --restart=always --name nexus   -p 8081:8081   -v /opt/nexus-data:/nexus-data   sonatype/nexus3
+   32  podman restart nexus
+   33  podman stop nexus
+   34  podman start nexus
+   35  podman logs nexus
+   36  podman start nexus
+   37  podman rm -f nexus
+   38  podman run -d --restart=always --name nexus   -p 8081:8081   -v /opt/nexus-data:/nexus-data   sonatype/nexus3
+   39  podman logs nexus
+   40  sudo chown -R 200:200 /opt/nexus-data
+   41  sudo chmod -R 700 /opt/nexus-data
+   42  sudo setenforce 0
+   43  podman start nexus
+   44  sudo setenforce 0
+   45  sudo chmod -R 700 /opt/nexus-data
+   46  sudo chown -R 200:200 /opt/nexus-data
+   47  sudo chmod -R 700 /opt/nexus-data
+   48  podman start nexus
+   49  podman logs nexus
+   50  sudo setenforce 0
+   51  sudo chmod -R 700 /opt/nexus-data
+   52  sudo chown -R 200:200 /opt/nexus-data
+   53  podman stop nexus
+   54  podman start nexus
+   55  podman ps -a
+   56  podman restart nexus
+   57  reboot
+   58  sudo setenforce 0
+   59  sudo chmod -R 700 /opt/nexus-data
+   60  podman restart nexus
+   61  ps
+   62  podman restart nexus
+   63  sudo chown -R 200:200 /opt/nexus-data
+   64  yum install firefox -y
+   65  cat /etc/yum.config
+   66  vi /etc/yum.conf
+   67  podman restart nexus
+   68  sudo setenforce 0
+   69  sudo chmod -R 700 /opt/nexus-data
+   70  sudo chown -R 200:200 /opt/nexus-data
+   71  sudo chmod -R 700 /opt/nexus-data
+   72  podman logs nexus
+   73  podman restart nexus
+   74  sudo chown -R 200:200 /opt/nexus-data
+   75  sudo setenforce 0
+   76  sudo chown -R 200:200 /opt/nexus-data
+   77  sudo chmod -R 700 /opt/nexus-data
+   78  podman logs nexus
+   79  podman restart nexus
+   80  sudo setenforce 0
+   81  sudo chown -R 200:200 /opt/nexus-data
+   82  sudo chmod -R 700 /opt/nexus-data
+   83  podman logs nexus
+   84  touch .env
+   85  vi .env
+   86  cat .env
+   87  vi .env
+   88  podman-compose up -d
+   89  dnf install -y python3-pip
+   90  dnf install -y podman-compose
+   91  cd /home
+   92  ls
+   93  ls .env
+   94  exit
+   95  podman version
+   96     curl -o /usr/local/bin/podman-compose -L "https://github.com/containers/podman-compose/releases/latest/download/podman-compose-$(uname -s)-$(uname -m)"
+   97  ping 8.8.8.8
+   98  vi /etc/yum.conf
+   99  vi /etc/environment
+  100  vi /etc/profile
+  101  ping 8.8.8.8
+  102     curl -o /usr/local/bin/podman-compose -L "https://github.com/containers/podman-compose/releases/latest/download/podman-compose-$(uname -s)-$(uname -m)"
+  103  podman run -d   --name octopus-db   -e "ACCEPT_EULA=Y"   -e "MSSQL_PID=Express"   -p 1433:1433   -v octopus-sql-data:/var/opt/mssql   mcr.microsoft.com/mssql/server:2019-latest
+  104  clear
+  105  podman run -d   --name octopus-db   -e 'ACCEPT_EULA=Y'   -e 'SA_PASSWORD=Strong!Passw0rd'   -e 'MSSQL_PID=Express'   -p 1433:1433   -v octopus-sql-data:/var/opt/mssql   mcr.microsoft.com/mssql/server:2019-latest
+  106  cat /etc/yum.conf
+  107  reboot
+  108  ls
+  109  yum install -y podman-compose
+  110  cat .env
+  111  podman run -d   --name octopus-db   -e 'ACCEPT_EULA=Y'   -e 'SA_PASSWORD=Strong!Passw0rd'   -e 'MSSQL_PID=Express'   -p 1433:1433   -v octopus-sql-data:/var/opt/mssql   mcr.microsoft.com/mssql/server:2019-latest
+  112     ping 8.8.8.8
+  113  podman run -d   --name octopus-db   -e 'ACCEPT_EULA=Y'   -e 'SA_PASSWORD=Strong!Passw0rd'   -e 'MSSQL_PID=Express'   -p 1433:1433   -v octopus-sql-data:/var/opt/mssql   mcr.microsoft.com/mssql/server:2019-latest-ubuntu
+  114  podman run -d   --name octopus-db   -e 'ACCEPT_EULA=Y'   -e 'SA_PASSWORD=Strong!Passw0rd'   -e 'MSSQL_PID=Express'   -p 1433:1433   -v octopus-sql-data:/var/opt/mssql   mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+  115     podman pull docker.io/library/hello-world
+  116  podman run -d   --name octopus-db   -e 'ACCEPT_EULA=Y'   -e 'SA_PASSWORD=Strong!Passw0rd'   -e 'MSSQL_PID=Express'   -p 1433:1433   -v octopus-sql-data:/var/opt/mssql   docker.io/microsoft/mssql-server-linux:2019-latest
+  117  clear
+  118  podman login docker.io
+  119  podman run -d   --name octopus-db   -e 'ACCEPT_EULA=Y'   -e 'SA_PASSWORD=Strong!Passw0rd'   -e 'MSSQL_PID=Express'   -p 1433:1433   -v octopus-sql-data:/var/opt/mssql   docker.io/microsoft/mssql-server-linux:2019-latest
+  120  podman run -d   --name octopus-db   -e 'ACCEPT_EULA=Y'   -e 'SA_PASSWORD=Strong!Passw0rd'   -e 'MSSQL_PID=Express'   -p 1433:1433   -v octopus-sql-data:/var/opt/mssql   mcr.microsoft.com/mssql/server:2019-latest
+  121  podman ps
+  122  podman run -d   --name octopus-server   --restart unless-stopped   -p 8080:8080   -p 10943:10943   -e ACCEPT_EULA="Y"   -e ADMIN_USERNAME="admin"   -e ADMIN_PASSWORD="AdminPassw0rd!"   -e ADMIN_EMAIL="mtlotlang@consultant.com"   -e OCTOPUS_SERVER_BASE64_LICENSE="PExpY2Vuc2UgU2lnbmF0dXJlPSJMNjVMWmRCN3MwbEp5K3lFakNWOGNBZWJaZ1pVeFNFc2lsSHFrN0tNSCtBcjVoMisrMHhkZGZUN0xYY0RSOVcvUW9pV3lyVU1BVW9HTU9NNkpVaUk2Zz09Ij4KICA8TGljZW5zZUtleT42NDY0My02MTg2My02MDQyNC0yODY2MTwvTGljZW5zZUtleT4KICA8VmVyc2lvbj4yLjA8IS0tIExpY2Vuc2UgU2NoZW1hIFZlcnNpb24gLS0+PC9WZXJzaW9uPgogIDxWYWxpZEZyb20+MjAyNS0wOC0yODwvVmFsaWRGcm9tPgogIDxWYWxpZFRvPjIwMjUtMDktMjc8L1ZhbGlkVG8+CiAgPEtpbmQ+VHJpYWw8L0tpbmQ+CiAgPE1hY2hpbmVMaW1pdCBUeXBlcz0iU3NoLFRlbnRhY2xlQWN0aXZlLFRlbnRhY2xlUGFzc2l2ZSI+NTA8L01hY2hpbmVMaW1pdD4KICA8TWFjaGluZUxpbWl0T3ZlcnJ1bj4wPC9NYWNoaW5lTGltaXRPdmVycnVuPgogIDxOb2RlTGltaXQ+VW5saW1pdGVkPC9Ob2RlTGltaXQ+CiAgPFByb2plY3RMaW1pdD41MDwvUHJvamVjdExpbWl0PgogIDxUZW5hbnRMaW1pdD41MDwvVGVuYW50TGltaXQ+CiAgPFNwYWNlTGltaXQ+VW5saW1pdGVkPC9TcGFjZUxpbWl0PgogIDxVc2VyTGltaXQ+VW5saW1pdGVkPC9Vc2VyTGltaXQ+CiAgPFdvcmtlckxpbWl0PlVubGltaXRlZDwvV29ya2VyTGltaXQ+CjwvTGljZW5zZT4="   -e MASTER_KEY="1a2b3c4d5e6f7890123456789abcdef0123456789abcdef0123456789abcdef0"   -e ADMIN_API_KEY="9f8e7d6c5b4a3c2d1e0f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d9"   -e DISABLE_DIND="true"   -e TASK_CAP="10"   -v octopus-repository:/repository   -v octopus-artifacts:/artifacts   -v octopus-tasklogs:/taskLogs   octopusdeploy/octopusdeploy:latest
+  123  "/root/"
+  124  podman ps
+  125  podman stop octopus-server
+  126  podman rm octopus-server
+  127  podman run -d   --name octopus-server   --restart unless-stopped   -p 8080:8080   -p 10943:10943   -e 'ACCEPT_EULA=Y'   -e 'DB_CONNECTION_STRING=Server=host.containers.internal;Database=OctopusDeploy;User=sa;Password=Strong!Passw0rd;TrustServerCertificate=true;'   -e 'ADMIN_USERNAME=admin'   -e 'ADMIN_PASSWORD=AdminPassw0rd!'   -e 'ADMIN_EMAIL=mtlotlang@consultant.com'   -e 'OCTOPUS_SERVER_BASE64_LICENSE=PExpY2Vuc2UgU2lnbmF0dXJlPSJMNjVMWmRCN3MwbEp5K3lFakNWOGNBZWJaZ1pVeFNFc2lsSHFrN0tNSCtBcjVoMisrMHhkZGZUN0xYY0RSOVcvUW9pV3lyVU1BVW9HTU9NNkpVaUk2Zz09Ij4KICA8TGljZW5zZUtleT42NDY0My02MTg2My02MDQyNC0yODY2MTwvTGljZW5zZUtleT4KICA8VmVyc2lvbj4yLjA8IS0tIExpY2Vuc2UgU2NoZW1hIFZlcnNpb24gLS0+PC9WZXJzaW9uPgogIDxWYWxpZEZyb20+MjAyNS0wOC0yODwvVmFsaWRGcm9tPgogIDxWYWxpZFRvPjIwMjUtMDktMjc8L1ZhbGlkVG8+CiAgPEtpbmQ+VHJpYWw8L0tpbmQ+CiAgPE1hY2hpbmVMaW1pdCBUeXBlcz0iU3NoLFRlbnRhY2xlQWN0aXZlLFRlbnRhY2xlUGFzc2l2ZSI+NTA8L01hY2hpbmVMaW1pdD4KICA8TWFjaGluZUxpbWl0T3ZlcnJ1bj4wPC9NYWNoaW5lTGltaXRPdmVycnVuPgogIDxOb2RlTGltaXQ+VW5saW1pdGVkPC9Ob2RlTGltaXQ+CiAgPFByb2plY3RMaW1pdD41MDwvUHJvamVjdExpbWl0PgogIDxUZW5hbnRMaW1pdD41MDwvVGVuYW50TGltaXQ+CiAgPFNwYWNlTGltaXQ+VW5saW1pdGVkPC9TcGFjZUxpbWl0PgogIDxVc2VyTGltaXQ+VW5saW1pdGVkPC9Vc2VyTGltaXQ+CiAgPFdvcmtlckxpbWl0PlVubGltaXRlZDwvV29ya2VyTGltaXQ+CjwvTGljZW5zZT4='   -e 'MASTER_KEY=1a2b3c4d5e6f7890123456789abcdef0123456789abcdef0123456789abcdef0'   -e 'ADMIN_API_KEY=9f8e7d6c5b4a3c2d1e0f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d9'   -e 'DISABLE_DIND=true'   -e 'TASK_CAP=10'   -v octopus-repository:/repository   -v octopus-artifacts:/artifacts   -v octopus-tasklogs:/taskLogs   octopusdeploy/octopusdeploy:latest
+  128  podman ps
+  129  podman logs octopus-db
+  130  clear
+  131  podman logs -f octopus-server
+  132  # Stop and remove existing containers
+  133  podman stop octopus-server octopus-db
+  134  # Remove volumes to start fresh
+  135  podman volume rm octopus-sql-data octopus-repository octopus-artifacts octopus-tasklogs
+  136  podman run -d   --name octopus-db   -e 'ACCEPT_EULA=Y'   -e 'SA_PASSWORD=Strong!Passw0rd'   -e 'MSSQL_PID=Express'   -p 1433:1433   -v octopus-sql-data:/var/opt/mssql   mcr.microsoft.com/mssql/server:2019-latest
+  137  podman ps
+  138  podman run -d   --name octopus-server   --restart unless-stopped   --privileged   -p 8080:8080   -p 10943:10943   -e 'ACCEPT_EULA=Y'   -e 'DB_CONNECTION_STRING=Server=host.containers.internal;Database=OctopusDeploy;User=sa;Password=Strong!Passw0rd;TrustServerCertificate=true;'   -e 'ADMIN_USERNAME=admin'   -e 'ADMIN_PASSWORD=AdminPassw0rd!'   -e 'ADMIN_EMAIL=mtlotlang@consultant.com'   -e 'OCTOPUS_SERVER_BASE64_LICENSE=PExpY2Vuc2UgU2lnbmF0dXJlPSJMNjVMWmRCN3MwbEp5K3lFakNWOGNBZWJaZ1pVeFNFc2lsSHFrN0tNSCtBcjVoMisrMHhkZGZUN0xYY0RSOVcvUW9pV3lyVU1BVW9HTU9NNkpVaUk2Zz09Ij4KICA8TGljZW5zZUtleT42NDY0My02MTg2My02MDQyNC0yODY2MTwvTGljZW5zZUtleT4KICA8VmVyc2lvbj4yLjA8IS0tIExpY2Vuc2UgU2NoZW1hIFZlcnNpb24gLS0+PC9WZXJzaW9uPgogIDxWYWxpZEZyb20+MjAyNS0wOC0yODwvVmFsaWRGcm9tPgogIDxWYWxpZFRvPjIwMjUtMDktMjc8L1ZhbGlkVG8+CiAgPEtpbmQ+VHJpYWw8L0tpbmQ+CiAgPE1hY2hpbmVMaW1pdCBUeXBlcz0iU3NoLFRlbnRhY2xlQWN0aXZlLFRlbnRhY2xlUGFzc2l2ZSI+NTA8L01hY2hpbmVMaW1pdD4KICA8TWFjaGluZUxpbWl0T3ZlcnJ1bj4wPC9NYWNoaW5lTGltaXRPdmVycnVuPgogIDxOb2RlTGltaXQ+VW5saW1pdGVkPC9Ob2RlTGltaXQ+CiAgPFByb2plY3RMaW1pdD41MDwvUHJvamVjdExpbWl0PgogIDxUZW5hbnRMaW1pdD41MDwvVGVuYW50TGltaXQ+CiAgPFNwYWNlTGltaXQ+VW5saW1pdGVkPC9TcGFjZUxpbWl0PgogIDxVc2VyTGltaXQ+VW5saW1pdGVkPC9Vc2VyTGltaXQ+CiAgPFdvcmtlckxpbWl0PlVubGltaXRlZDwvV29ya2VyTGltaXQ+CjwvTGljZW5zZT4='   -e 'MASTER_KEY=1a2b3c4d5e6f7890123456789abcdef0123456789abcdef0123456789abcdef0'   -e 'ADMIN_API_KEY=9f8e7d6c5b4a3c2d1e0f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d9'   -e 'DISABLE_DIND=true'   -e 'TASK_CAP=10'   -v octopus-repository:/repository   -v octopus-artifacts:/artifacts   -v octopus-tasklogs:/taskLogs   octopusdeploy/octopusdeploy:latest
+  139  podman ps
+  140  podman logs -f octopus-server
+  141  podman stop octopus-server
+  142  podman rm octopus-server
+  143  podman run -d   --name octopus-server   --restart unless-stopped   --privileged   -p 8080:8080   -p 10943:10943   -e 'ACCEPT_EULA=Y'   -e 'DB_CONNECTION_STRING=Server=host.containers.internal;Database=OctopusDeploy;User=sa;Password=Strong!Passw0rd;TrustServerCertificate=true;'   -e 'ADMIN_USERNAME=admin'   -e 'ADMIN_PASSWORD=AdminPassw0rd!'   -e 'ADMIN_EMAIL=mtlotlang@consultant.com'   -e 'OCTOPUS_SERVER_BASE64_LICENSE=PExpY2Vuc2UgU2lnbmF0dXJlPSJMNjVMWmRCN3MwbEp5K3lFakNWOGNBZWJaZ1pVeFNFc2lsSHFrN0tNSCtBcjVoMisrMHhkZGZUN0xYY0RSOVcvUW9pV3lyVU1BVW9HTU9NNkpVaUk2Zz09Ij4KICA8TGljZW5zZUtleT42NDY0My02MTg2My02MDQyNC0yODY2MTwvTGljZW5zZUtleT4KICA8VmVyc2lvbj4yLjA8IS0tIExpY2Vuc2UgU2NoZW1hIFZlcnNpb24gLS0+PC9WZXJzaW9uPgogIDxWYWxpZEZyb20+MjAyNS0wOC0yODwvVmFsaWRGcm9tPgogIDxWYWxpZFRvPjIwMjUtMDktMjc8L1ZhbGlkVG8+CiAgPEtpbmQ+VHJpYWw8L0tpbmQ+CiAgPE1hY2hpbmVMaW1pdCBUeXBlcz0iU3NoLFRlbnRhY2xlQWN0aXZlLFRlbnRhY2xlUGFzc2l2ZSI+NTA8L01hY2hpbmVMaW1pdD4KICA8TWFjaGluZUxpbWl0T3ZlcnJ1bj4wPC9NYWNoaW5lTGltaXRPdmVycnVuPgogIDxOb2RlTGltaXQ+VW5saW1pdGVkPC9Ob2RlTGltaXQ+CiAgPFByb2plY3RMaW1pdD41MDwvUHJvamVjdExpbWl0PgogIDxUZW5hbnRMaW1pdD41MDwvVGVuYW50TGltaXQ+CiAgPFNwYWNlTGltaXQ+VW5saW1pdGVkPC9TcGFjZUxpbWl0PgogIDxVc2VyTGltaXQ+VW5saW1pdGVkPC9Vc2VyTGltaXQ+CiAgPFdvcmtlckxpbWl0PlVubGltaXRlZDwvV29ya2VyTGltaXQ+CjwvTGljZW5zZT4='   -e 'MASTER_KEY=1a2b3c4d5e6f7890123456789abcdef0123456789abcdef0123456789abcdef0'   -e 'ADMIN_API_KEY=9f8e7d6c5b4a3c2d1e0f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d9'   -e 'DISABLE_DIND=true'   -e 'TASK_CAP=10'   -e 'RESET_MASTER_KEY=true'   -v octopus-repository:/repository   -v octopus-artifacts:/artifacts   -v octopus-tasklogs:/taskLogs   octopusdeploy/octopusdeploy:latest
+  144  podman logs -f octopus-server
+  145  podman stop octopus-server octopus-db
+  146  podman rm octopus-server octopus-db
+  147  podman volume rm octopus-sql-data octopus-repository octopus-artifacts octopus-tasklogs
+  148  podman run -d   --name octopus-db   -e 'ACCEPT_EULA=Y'   -e 'SA_PASSWORD=Strong!Passw0rd'   -e 'MSSQL_PID=Express'   -p 1433:1433   -v octopus-sql-data:/var/opt/mssql   mcr.microsoft.com/mssql/server:2019-latest
+  149  podman run -d   --name octopus-server   --restart unless-stopped   --privileged   -p 8080:8080   -p 10943:10943   -e 'ACCEPT_EULA=Y'   -e 'DB_CONNECTION_STRING=Server=host.containers.internal;Database=OctopusDeploy;User=sa;Password=Strong!Passw0rd;TrustServerCertificate=true;'   -e 'ADMIN_USERNAME=admin'   -e 'ADMIN_PASSWORD=AdminPassw0rd!'   -e 'ADMIN_EMAIL=mtlotlang@consultant.com'   -e 'OCTOPUS_SERVER_BASE64_LICENSE=YOUR_LICENSE_HERE'   -e 'MASTER_KEY=2b3c4d5e6f7890123456789abcdef0123456789abcdef0123456789abcdef01'   -e 'ADMIN_API_KEY=9f8e7d6c5b4a3c2d1e0f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5c4b3a2f1e0d9'   -e 'DISABLE_DIND=true'   -e 'TASK_CAP=10'   -v octopus-repository:/repository   -v octopus-artifacts:/artifacts   -v octopus-tasklogs:/taskLogs   octopusdeploy/octopusdeploy:latest
+  150  podman logs -f octopus-server
+  151  podman stop octopus-server octopus-db
+  152  podman rm octopus-server octopus-db
+  153  podman volume rm octopus-sql-data octopus-repository octopus-artifacts octopus-tasklogs
+  154  podman run -d   --name octopus-db   -e 'ACCEPT_EULA=Y'   -e 'SA_PASSWORD=Strong!Passw0rd'   -e 'MSSQL_PID=Express'   -p 1433:1433   -v octopus-sql-data:/var/opt/mssql   mcr.microsoft.com/mssql/server:2019-latest
+  155  podman run -d   --name octopus-server   --restart unless-stopped   --privileged   -p 8080:8080   -p 10943:10943   -e 'ACCEPT_EULA=Y'   -e 'DB_CONNECTION_STRING=Server=host.containers.internal;Database=OctopusDeploy;User=sa;Password=Strong!Passw0rd;TrustServerCertificate=true;'   -e 'ADMIN_USERNAME=admin'   -e 'ADMIN_PASSWORD=AdminPassw0rd!'   -e 'ADMIN_EMAIL=mtlotlang@consultant.com'   -e 'OCTOPUS_SERVER_BASE64_LICENSE=PExpY2Vuc2UgU2lnbmF0dXJlPSJMNjVMWmRCN3MwbEp5K3lFakNWOGNBZWJaZ1pVeFNFc2lsSHFrN0tNSCtBcjVoMisrMHhkZGZUN0xYY0RSOVcvUW9pV3lyVU1BVW9HTU9NNkpVaUk2Zz09Ij4KICA8TGljZW5zZUtleT42NDY0My02MTg2My02MDQyNC0yODY2MTwvTGljZW5zZUtleT4KICA8VmVyc2lvbj4yLjA8IS0tIExpY2Vuc2UgU2NoZW1hIFZlcnNpb24gLS0+PC9WZXJzaW9uPgogIDxWYWxpZEZyb20+MjAyNS0wOC0yODwvVmFsaWRGcm9tPgogIDxWYWxpZFRvPjIwMjUtMDktMjc8L1ZhbGlkVG8+CiAgPEtpbmQ+VHJpYWw8L0tpbmQ+CiAgPE1hY2hpbmVMaW1pdCBUeXBlcz0iU3NoLFRlbnRhY2xlQWN0aXZlLFRlbnRhY2xlUGFzc2l2ZSI+NTA8L01hY2hpbmVMaW1pdD4KICA8TWFjaGluZUxpbWl0T3ZlcnJ1bj4wPC9NYWNoaW5lTGltaXRPdmVycnVuPgogIDxOb2RlTGltaXQ+VW5saW1pdGVkPC9Ob2RlTGltaXQ+CiAgPFByb2plY3RMaW1pdD41MDwvUHJvamVjdExpbWl0PgogIDxUZW5hbnRMaW1pdD41MDwvVGVuYW50TGltaXQ+CiAgPFNwYWNlTGltaXQ+VW5saW1pdGVkPC9TcGFjZUxpbWl0PgogIDxVc2VyTGltaXQ+VW5saW1pdGVkPC9Vc2VyTGltaXQ+CiAgPFdvcmtlckxpbWl0PlVubGltaXRlZDwvV29ya2VyTGltaXQ+CjwvTGljZW5zZT4='   -v octopus-repository:/repository   -v octopus-artifacts:/artifacts   -v octopus-tasklogs:/taskLogs   octopusdeploy/octopusdeploy:latest
+  156  podman logs -f octopus-server
+  157  clear
+  158  history
+[root@RHQ01SW01NEXUS ~]#
+[root@RHQ01SW01NEXUS ~]# [root@RHQ01SW01POD-DOC ~]# podman run -d --name=grafana   --network=monitor-net   -p 3000:3000   -v /data/grafana:/var/lib/grafana   grafana/grafana
+-bash: [root@RHQ01SW01POD-DOC: command not found
+[root@RHQ01SW01NEXUS ~]#

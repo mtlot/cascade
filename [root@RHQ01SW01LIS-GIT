@@ -1,0 +1,354 @@
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 • MobaXterm Personal Edition v24.3 •                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ⮞ SSH session to root@10.210.1.70                                    │
+    │   • Direct SSH      :  ✓                                             │
+    │   • SSH compression :  ✓                                             │
+    │   • SSH-browser     :  ✓                                             │
+    │   • X11-forwarding  :  ✗  (disabled or not supported by server)      │
+    │                                                                      │
+    │ ⮞ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+Last login: Thu Aug 28 17:07:14 2025 from 10.210.1.4
+[root@RHQ01SW01LIS-GIT ~]# podman run -d --name mssql   -e "ACCEPT_EULA=Y"   -e "SA_PASSWORD=SqlExpress!"   -e "MSSQL_PID=Express"   -p 1444:1433                                                                                         -v sql-server-data:/var/opt/mssql   mcr.microsoft.com/mssql/server:2017-latest-ubuntu^C
+[root@RHQ01SW01LIS-GIT ~]#  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always -e GITLAB_SKIP_PG_UPGRADE=tr                                                                                      ue --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:12                                                                                      .10.14-ce.0^C
+[root@RHQ01SW01LIS-GIT ~]# clear
+[root@RHQ01SW01LIS-GIT ~]# history
+    1  vi /etc/sysconfig/network-scripts/ifcfg-ens192
+    2  reboot
+    3  ls
+    4  vi /etc/environment
+    5  vi /etc/profile
+    6     yum module install -y container-tools:ol8
+    7  vi /etc/yum.conf
+    8  yum module install -y container-tools:ol8
+    9  podman info
+   10  sudo mkdir -p /etc/systemd/system/podman.service.d
+   11  podman pull gitlab/gitlab-ce:10.7.1-ce.0
+   12  clear
+   13  vi /etc/environment
+   14  podman pull gitlab/gitlab-ce:10.7.1-ce.0
+   15  podman login
+   16  clear
+   17  vi /etc/environment
+   18  curl -v google.com
+   19  vi /etc/environment
+   20  curl -v google.com
+   21  vi /etc/profile
+   22  curl -v google.com
+   23  reboot
+   24  curl -v google.com
+   25  podman pull gitlab/gitlab-ce:10.7.1-ce.0
+   26  podman ps
+   27  [root@RHQ01SW01POD-DOC ~]# sudo mkdir -p /srv/gitlab/{config,logs,data}
+   28  # sudo mkdir -p /srv/gitlab/{config,logs,data}
+   29   sudo mkdir -p /srv/gitlab/{config,logs,data}
+   30  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:10.7.1-ce.0
+   31  podman ps
+   32  vi /etc/sysconfig/podman
+   33   vi /etc/sysconfig/podman
+   34  reboot
+   35  ping 10.210.1.70
+   36  [root@RHQ01SW01POD-DOC ~]# sudo systemctl stop firewalld
+   37  sudo systemctl stop firewalld
+   38  sudo systemctl disable firewalld
+   39  reboot
+   40    218  setenforce permissive
+   41  setenforce permissive
+   42    219  sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+   43  sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+   44    265  sudo podman container exec -it gitlab gitlab-rails console
+   45  sudo podman container exec -it gitlab gitlab-rails console
+   46    108  sudo firewall-cmd --state
+   47  sudo firewall-cmd --state
+   48  podman container exec -it gitlab gitlab-rails console
+   49  podman ps
+   50  podman restart gitlab
+   51  podman ps
+   52  podman stop gitlab
+   53  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:10.7.1-ce.0
+   54  podman container rm -f 04349d0e2acd45f3b55f1478b2977ea5c995be633e360e3c9f29c4ca9edc8214.
+   55  podman container rm -f 04349d0e2acd45f3b55f1478b2977ea5c995be633e360e3c9f29c4ca9edc8214
+   56  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:10.7.1-ce.0
+   57  podman ps
+   58  curl -v 10.210.1.70
+   59  curl -v http://10.210.1.70/users/sign_in
+   60  podman logs gitlab
+   61    docker exec -it gitlab update-permissions
+   62  podman exec -it gitlab update-permissions
+   63  podman restart gitlab
+   64  podman images
+   65   sudo rm -f /srv/gitlab/{config,logs,data}
+   66   sudo rm -r -f /srv/gitlab/{config,logs,data}
+   67  podman ps
+   68  podman container rm -f 04349d0e2acd45f3b55f1478b2977ea5c995be633e360e3c9f29c4ca9edc8214
+   69  podman container ps -a
+   70  podman container stop gitlab
+   71  podman container prune
+   72  ip addr show
+   73  # sudo mkdir -p /srv/gitlab/{config,logs,data}
+   74  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:10.7.1-ce.0
+   75  ls
+   76  # sudo mkdir -p /srv/gitlab/{config,logs,data}
+   77  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:10.7.1-ce.0
+   78  sudo mkdir -p /srv/gitlab/{config,logs,data}
+   79  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:10.7.1-ce.0
+   80  curl -v http://10.210.1.70/users/sign_in
+   81  podman ps
+   82  podman start gitlab
+   83  podman ps
+   84  vi /etc/environment
+   85  vi /etc/profile
+   86  reboot
+   87  podman pull gitlab/gitlab-ce:12.1.13-ce.0
+   88  podman stop gitlab && podman rm gitlab
+   89  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:12.1.13-ce.0
+   90  podman exec -it gitlab update-permissions && podman restart gitlab && podman exec -it gitlab gitlab-ctl reconfigure
+   91  podman exec -it gitlab gitlab-ctl status
+   92  podman exec -it gitlab gitlab-ctl tail
+   93  podman logs gitlab
+   94  clear
+   95  vi /etc/containers/registries.conf
+   96  sudo systemctl restart podman
+   97  sudo systemctl restart podman.service
+   98  vi /etc/containers/registries.conf
+   99  sudo systemctl restart podman
+  100  podman pull gitlab/gitlab-ce:10.1.17-ce.0
+  101  podman pull gitlab/gitlab-ce:12.1.17-ce.0
+  102  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:12.1.17-ce.0
+  103  podman stop gitlab && podman rm gitlab
+  104  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:12.1.17-ce.0
+  105  podman ps -a
+  106  podman exec -it gitlab update-permissions && podman restart gitlab && podman exec -it gitlab gitlab-ctl reconfigure
+  107  template[/opt/gitlab/sv/grafana/check] action create (skipped due to only_if)
+  108        * template[/opt/gitlab/sv/grafana/finish] action create (skipped due to only_if)
+  109        * directory[/opt/gitlab/sv/grafana/control] action create (up to date)
+  110        * link[/opt/gitlab/init/grafana] action create (up to date)
+  111        * file[/opt/gitlab/sv/grafana/down] action delete (up to date)
+  112        * directory[/opt/gitlab/service] action create (up to date)
+  113        * link[/opt/gitlab/service/grafana] action create
+  114          - create symlink at /opt/gitlab/service/grafana to /opt/gitlab/sv/grafana
+  115        * ruby_block[wait for grafana service socket] action run
+  116          - execute the ruby block wait for grafana service socket
+  117        - execute the ruby block restart_log_service
+  118      * directory[/opt/gitlab/service] action create (up to date)
+  119      * link[/opt/gitlab/service/grafana] action create (up to date)
+  120      * ruby_block[wait for grafana service socket] action run (skipped due to not_if)
+  121  Recipe: gitlab::gitlab-rails
+  122  template[/opt/gitlab/sv/grafana/check] action create (skipped due to only_if)
+  123        * template[/opt/gitlab/sv/grafana/finish] action create (skipped due to only_if)
+  124        * directory[/opt/gitlab/sv/grafana/control] action create (up to date)
+  125        * link[/opt/gitlab/init/grafana] action create (up to date)
+  126        * file[/opt/gitlab/sv/grafana/down] action delete (up to date)
+  127        * directory[/opt/gitlab/service] action create (up to date)
+  128        * link[/opt/gitlab/service/grafana] action create
+  129          - create symlink at /opt/gitlab/service/grafana to /opt/gitlab/sv/grafana
+  130        * ruby_block[wait for grafana service socket] action run
+  131          - execute the ruby block wait for grafana service socket
+  132        - execute the ruby block restart_log_service
+  133      * directory[/opt/gitlab/service] action create (up to date)
+  134      * link[/opt/gitlab/service/grafana] action create (up to date)
+  135      * ruby_block[wait for grafana service socket] action run (skipped due to not_if)
+  136  Recipe: gitlab::gitlab-rails
+  137  podman  image rm 2625c679bf47 && podman  image rm fbd8a7cae3e0
+  138  podman pull gitlab/gitlab-ce:12.1.18-ce.0
+  139  podman pull gitlab/gitlab-ce:12.2.0-ce.0
+  140  podman stop gitlab && podman rm gitlab
+  141  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:12.2.0-ce.0
+  142  podman exec -it gitlab update-permissions && podman restart gitlab && podman exec -it gitlab gitlab-ctl reconfigure
+  143  podman logs gitlab
+  144  podman stop gitlab && podman rm gitlab
+  145  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always --e GITLAB_SKIP_PG_UPGRADE=true --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:12.2.0-ce.0
+  146  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always -e GITLAB_SKIP_PG_UPGRADE=true --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:12.2.0-ce.0
+  147  podman exec -it gitlab update-permissions && podman restart gitlab && podman exec -it gitlab gitlab-ctl reconfigure
+  148  podman pull gitlab/gitlab-ce:12.10.14-ce.0
+  149  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always -e GITLAB_SKIP_PG_UPGRADE=true --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:12.1.17-ce.0
+  150  podman stop gitlab && podman rm gitlab
+  151   sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always -e GITLAB_SKIP_PG_UPGRADE=true --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:12.1.17-ce.0
+  152  podman stop gitlab && podman rm gitlab
+  153   sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always -e GITLAB_SKIP_PG_UPGRADE=true --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:12.10.14-ce.0
+  154  podman exec -it gitlab update-permissions && podman restart gitlab && podman exec -it gitlab gitlab-ctl reconfigure
+  155  rm -r -f /srv/gitlab
+  156  mkdir -p /srv/gitlab/{config,logs,data}
+  157  podman images
+  158  podman  image rm 315702c50c90  &&   podman  image rm 1e938af658a7 &&   podman  image rm  84914061f337
+  159  podman pull gitlab/gitlab-ce:15.10.7-ce.0
+  160  podman ps
+  161  podman stop gitlab
+  162  podman ps -a
+  163  podman stop gitlab && podman rm gitlab
+  164  rm -r -f /srv/gitlab
+  165  mkdir -p /srv/gitlab/{config,logs,data}
+  166  sudo podman run --detach --publish 443:443 --publish 80:80 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:15.10.7-ce.0
+  167  podman ps
+  168  podman exec -it gitlab update-permissions && podman restart gitlab && podman exec -it gitlab gitlab-ctl reconfigure
+  169  podman container exec -it gitlab  gitlab-rails console
+  170  vi /etc/environment
+  171  vi /etc/profile
+  172  vi /etc/containers/registries.conf
+  173  history
+  174   sudo systemctl stop firewalld
+  175  podman start gitlab
+  176  podman ps
+  177  podman restart gitlab
+  178  podman pull mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+  179  podman run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=SqlExpress!" -e "MSSQL_PID=Express" -p 1444:1433 -d mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+  180  podman ps
+  181  history
+  182  clear
+  183  podman restart gitlab
+  184  podman exec -it mcr.microsoft.com/mssql/server:2017-latest-ubuntu /bin/bash
+  185  podman ps -a
+  186  podman exec -it  quirky_mahavira /bin/bash
+  187  clear
+  188  podman ps
+  189  podman ps -a
+  190  podman restart gitlab
+  191  podman run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=SqlExpress!" -e "MSSQL_PID=Express" -p 1444:1433 -d mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+  192  podman stop bold_tesla
+  193  podman ps -a
+  194  podman stop bold_tesla
+  195  podman ps -a
+  196  podman rm bold_tesla
+  197  podman ps -a
+  198  reboot
+  199  podman restart gitlab
+  200  podman ps -a
+  201  podman run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=SqlExpress!" -e "MSSQL_PID=Express" -p 1444:1433 -d mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+  202  podman ps
+  203  podman exec -it mcr.microsoft.com/mssql/server:2017-latest-ubuntu /bin/bash
+  204  podman images
+  205  podman rm          b4d820fe8575  4 years ago   1.83 GB
+  206  [root@RHQ01SW01LIS-GIT ~]# podman start gitlab
+  207  podman rm gifted_hugle
+  208  podman rm 90422b3f4da2d941b6e25c9b52db2d3c031189e0a7f93ce4fe101e86d854ab60
+  209  podman stop  gifted_hugle
+  210  podman rm  gifted_hugle
+  211  podman ps -a
+  212  podman exec -it mcr.microsoft.com/mssql/server:2017-latest-ubuntu /bin/bash
+  213  podman exec -it  quirky_mahavira /bin/bash
+  214  podman countainer ps
+  215  podman countainer ps -a
+  216  podman exec -it af9f5bf7a816  /bin/bash
+  217  podman rm af9f5bf7a816
+  218  podman ps
+  219  podman run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=SqlExpress!" -e "MSSQL_PID=Express" -p 1444:1433 -d mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+  220  podman exec -it mcr.microsoft.com/mssql/server:2017-latest-ubuntu /bin/bash
+  221  podman exec -it 933c9eef97cc9453f3c54c02d23fff39b41b12b8ca0d291b256f9cac7ac3564a /bin/bash
+  222  podman ps
+  223  podman rm af9f5bf7a81
+  224  podman exec -it 933c9eef97cc /bin/bash
+  225  podman stop mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+  226  podman ps
+  227  podman stop 933c9eef97cc
+  228  podman restart 933c9eef97cc
+  229  reboot
+  230  podman restart 933c9eef97cc
+  231  podman restart gitlab
+  232  podman ps
+  233  podman restart gitlab
+  234  podman ps
+  235  history
+  236  podman run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=SqlExpress!" -e "MSSQL_PID=Express" -p 1444:1433 -d mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+  237  podman ps
+  238  restart 616e0061a523
+  239  restart mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+  240  history
+  241  podman ps
+  242  podman volume create sql-server-data
+  243  podman stop mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+  244  podman ps
+  245  podman stop 616e0061a523
+  246  podman rm 616e0061a523
+  247  podman run -d --name mssql   -e "ACCEPT_EULA=Y"   -e "SA_PASSWORD=SqlExpress!"   -e "MSSQL_PID=Express"   -p 1444:1433   -v sql-server-data:/var/opt/mssql   mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+  248  podman restart gitlab
+  249  history
+  250  podman restart mssql
+  251  history
+  252  podman restart mssql
+  253  podman restart gitlab
+  254  history
+  255      1  vi /etc/sysconfig/network-scripts/ifcfg-ens192
+  256  vi /etc/sysconfig/network-scripts/ifcfg-ens192
+  257  cat /etc/yum.conf
+  258  podman restart gitlab
+  259  podman restart mssql
+  260  podman restart gitlab
+  261  history
+  262  podman restart gitlab
+  263  podman status gitlab
+  264  podman restart gitlab
+  265  podman stop gitlab
+  266  reboot
+  267  podman restart gitlab
+  268  reboot
+  269  podman restart gitlab
+  270  cat /etc/sysconfig/network-scripts/ifcfg-ens192
+  271  vi /etc/sysconfig/network-scripts/ifcfg-ens192
+  272  podman ps
+  273  podman images
+  274  podman ps
+  275  podman pull sonatype/nexus3
+  276  podman pull docker.io/sonatype/nexus3
+  277  history
+  278  podman pull sonatype/nexus3
+  279  history
+  280  LL
+  281  LS
+  282  ls
+  283  history
+  284  cat /etc/profile
+  285  cat /etc/evironment
+  286  cat /etc/environment
+  287  cat /etc/systemd/system/podman.service.d
+  288  cd /etc/systemd/system/podman.service.d
+  289  ls
+  290  ll
+  291  history
+  292  history
+  293  cat /etc/profile
+  294  cd /etc/systemd/system/podman.service.d
+  295  ls
+  296  cat /etc/evironment
+  297  cd /root
+  298  cat /etc/evironment
+  299  cd  /.
+  300  cd  /.cd /root
+  301  cd  /root
+  302  cat /etc/
+  303  cat /etc
+  304  cd /etc
+  305  ls
+  306  cat environment
+  307  history
+  308   cat /etc/profile
+  309  cat /etc/evironment
+  310  cat /etc/environment
+  311  cat /etc/evironment
+  312  cat /etc/environment
+  313  cat /etc/yum.conf
+  314  history
+  315  cat /etc/containers/registries.conf
+  316  history
+  317  podman pull docker.io/nginx:latest
+  318  podman images
+  319  at /etc/evironment
+  320  cat /etc/evironment
+  321   cat /etc/profile
+  322  clear
+  323  history
+  324  top
+  325  podman restart gitlab
+  326  podman stop gitlab
+  327  reboot
+  328  podman restart gitlab
+  329  ssh root@10.210.1.90
+  330  podman restart gitlab
+  331  history
+  332  podman restart mssql
+  333  history
+  334  clear
+  335  history
+[root@RHQ01SW01LIS-GIT ~]#
